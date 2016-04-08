@@ -105,15 +105,15 @@ class ChessPiece(object):
                              new position, time, otherwise False.
         Examples:
             >>> piece = ChessPiece('a2')
-            >>> piece.move('A3')
-                ('a1', 'a2', 1460093940)
+            >>> piece.move('a3')
+                (1, 2, 1460093940)
 
-            >>> piece = ChessPiece('A1')
-            >>> piece.move('D3')
-                ('a', 'd3', 1460094180)
+            >>> piece = ChessPiece('a3')
+            >>> piece.move('d3')
+                (2, 2, 1460094180)
 
-            >>> piece = ChessPiece('a1)
-            >>> piece.move('e5)'
+            >>> piece = ChessPiece('a4')
+            >>> piece.move('e5')
                 False
         """
 
