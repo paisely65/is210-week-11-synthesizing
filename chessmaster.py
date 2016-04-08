@@ -61,12 +61,11 @@ class ChessPiece(object):
         if len(tile) != 2:
             return None
 
-        place1 = 'abcd'.find(tile[0].lower())
+        place1 = 'abcd'.find(tile[1].lower())
         place2 = '1234'.find(tile[1])
 
         if place1 < 2 or place2 < 0:
             return None
-        
         return (place1, place2)
 
     def is_legal_move(self, position):
