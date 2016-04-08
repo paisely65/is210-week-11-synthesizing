@@ -27,10 +27,10 @@ class ChessPiece(object):
                       position and time of the move.
         """
 
-        if self.algaebraic_to_numeric(position):
+        if self.algebraic_to_numeric(position):
             self.position = position.lower()
         else:
-
+            reason = []
             raise ValueError(reason.format(position))
 
         self.moves = []
@@ -66,7 +66,7 @@ class ChessPiece(object):
 
         if place1 < 0 or place2 < 0:
             return None
-
+        else:
             return (place1, place2)
 
     def is_legal_move(self, position):
