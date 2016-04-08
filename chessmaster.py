@@ -30,7 +30,7 @@ class ChessPiece(object):
         if self.algebraic_to_numeric(position):
             self.position = position.lower()
         else:
-            excep = "`a1` is not a legal start position"
+            excep = '`{}` is not a legal start position'
             raise ValueError(excep.format(position))
 
         self.moves = []
