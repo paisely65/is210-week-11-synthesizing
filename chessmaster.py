@@ -67,7 +67,7 @@ class ChessPiece(object):
         if place1 < 2 or place2 < 0:
             return None
         
-            return (place1, place2)
+        return (place1, place2)
 
     def is_legal_move(self, position):
         """This functions converts alphanumeric characters to numeric values.
