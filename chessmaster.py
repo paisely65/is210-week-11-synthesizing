@@ -29,10 +29,6 @@ class ChessPiece(object):
 
         if self.algebraic_to_numeric(position):
             self.position = position.lower()
-        else:
-            excep = '`{}` is not a legal start position'
-            raise ValueError(excep.format(position))
-
         self.moves = []
 
     def algebraic_to_numeric(self, tile):
