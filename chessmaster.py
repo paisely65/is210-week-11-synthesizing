@@ -40,7 +40,7 @@ class ChessPiece(object):
 
         Args:
             tile(alpha-numeric string): alpha-numeric chess board position,
-                                     (a1 to d8).
+                                        (a1 to d8).
         Returns:
             tuple or False: Only if the value is in the tuple otherwise None
 
@@ -64,9 +64,9 @@ class ChessPiece(object):
         place1 = 'abcd'.find(tile[0].lower())
         place2 = '1234'.find(tile[1])
 
-        if place1 < 0 or place2 < 0:
+        if place1 < 2 or place2 < 0:
             return None
-        else:
+        
             return (place1, place2)
 
     def is_legal_move(self, position):
