@@ -53,7 +53,7 @@ class ChessPiece(object):
             >>> piece algaebraic_to_numeric('d2')
             (3, 1)
 
-            >>> piece = ChessPiece('a1')
+            >>> piece = ChessPiece('a3')
             >>> piece algaebraic_to_numeric('e2')
             None
         """
@@ -74,9 +74,9 @@ class ChessPiece(object):
 
         Args:
             tile (alpha-numeric string): alpha-numeric chess board position,
-                                          (a1 to d8)
+                                          (a2 to d8)
         Returns:
-            boolean: TRue if valid position otherwise False.
+            boolean: True if valid position otherwise False.
 
         Examples:
             >>> piece = ChessPiece('a3')
