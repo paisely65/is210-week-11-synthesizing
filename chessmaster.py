@@ -7,8 +7,7 @@ import time
 
 class ChessPiece(position):
     """ A class that shows the posistion of gamepieses."""
-    Attributes:
-        position(string): stores the title notation of its current position
+    Attributes: prefix an empty string
         moves(list): stores tuples of information
         
 
