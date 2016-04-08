@@ -30,7 +30,7 @@ class ChessPiece(object):
         if self.algebraic_to_numeric(position):
             self.position = position.lower()
         else:
-            excep = '`{}` is not a legal start position'
+            excep = "`a1` is not a legal start position"
             raise ValueError(excep.format(position))
 
         self.moves = []
@@ -40,28 +40,28 @@ class ChessPiece(object):
 
         Args:
             tile(alpha-numeric string): alpha-numeric chess board position,
-                                     (A1 to D8).
+                                     (a1 to d8).
         Returns:
-            tuple or False: Only if the value is in he tuple otherwise None
+            tuple or False: Only if the value is in the tuple otherwise None
 
         Examples:
-            >>> piece = ChessPiece('A1')
-            >>> piece algaebraic_to_numeric('B2')
-            (0, 1)
+            >>> piece = ChessPiece('a2')
+            >>> piece algaebraic_to_numeric('b2')
+            (1, 1)
 
-            >>> piece = ChessPiece('A1')
-            >>> piece algaebraic_to_numeric('D2')
+            >>> piece = ChessPiece('a2')
+            >>> piece algaebraic_to_numeric('d2')
             (3, 1)
 
-            >>> piece = ChessPiece('A1')
-            >>> piece algaebraic_to_numeric('E2')
+            >>> piece = ChessPiece('a1')
+            >>> piece algaebraic_to_numeric('e2')
             None
         """
 
         if len(tile) != 2:
             return None
 
-        place1 = 'ABCD'.find(tile[0].lower())
+        place1 = 'abcd'.find(tile[0].lower())
         place2 = '1234'.find(tile[1])
 
         if place1 < 0 or place2 < 0:
@@ -74,21 +74,21 @@ class ChessPiece(object):
 
         Args:
             tile (alpha-numeric string): alpha-numeric chess board position,
-                                          (A1 to D8)
+                                          (a1 to d8)
         Returns:
             boolean: TRue if valid position otherwise False.
 
         Examples:
-            >>> piece = ChessPiece('A1')
-            >>> piece.is_legal_move('A2')
+            >>> piece = ChessPiece('a3')
+            >>> piece.is_legal_move('a5')
             True
 
-            >>> piece = ChessPiece('A1')
-            >>> piece.is_legal_move('D9')
+            >>> piece = ChessPiece('a2')
+            >>> piece.is_legal_move('d9')
             False
 
-            >>> piece = ChessPiece('A1')
-            >>> piece.is_legal_move('D8')
+            >>> piece = ChessPiece('a4')
+            >>> piece.is_legal_move('d8')
             True
         """
         return True if self.algebraic_to_numeric(position)else False
@@ -104,16 +104,16 @@ class ChessPiece(object):
             tuple or False: new position as a tuple with original position,
                              new position, time, otherwise False.
         Examples:
-            >>> piece = ChessPiece('A1')
-            >>> piece.move('A2')
-                ('A1', 'A2', 1460093940)
+            >>> piece = ChessPiece('a2')
+            >>> piece.move('A3')
+                ('a1', 'a2', 1460093940)
 
             >>> piece = ChessPiece('A1')
             >>> piece.move('D3')
-                ('A', 'D3', 1460094180)
+                ('a', 'd3', 1460094180)
 
-            >>> piece = ChessPiece('A1)
-            >>> piece.move('E5)'
+            >>> piece = ChessPiece('a1)
+            >>> piece.move('e5)'
                 False
         """
 
