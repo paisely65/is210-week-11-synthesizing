@@ -40,7 +40,7 @@ class ChessPiece(object):
 
         Args:
             tile(alpha-numeric string): alpha-numeric chess board position,
-                                        (a1 to d8).
+                                        (a2 to d8).
         Returns:
             tuple or False: Only if the value is in the tuple otherwise None
 
