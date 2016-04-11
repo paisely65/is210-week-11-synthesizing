@@ -101,8 +101,8 @@ class ChessPiece(object):
             tuple of False: If new position is a valid tuple, otherwise False.
         """
 
-    if not self.is_legal_move(position):
-        return False
+        if not self.is_legal_move(position):
+            return False
 
     newmove = (self.prefix + self.position, self.prefix + position,
                time.time())
