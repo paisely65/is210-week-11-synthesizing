@@ -17,18 +17,17 @@ class ChessPiece(object):
         """The creator of the class ChessPiece).
 
         Args:
-            position(alphanumeric, optional):initial position 
+            position(alphanumeric, optional):initial position
         Attributes:
             position(alphanumeric, optional):the initial position
             moves(list): list of tuples containing positions and time of moves.
         """
-
         if self.algaebraic_to_numeric(position):
             self.position = position.lower()
         else:
             reason = '`{0}` is not a legal start position'
         raise ValueError(reason.format(position))
-        self.moves = []
+            self.moves = []
 
     def algaebraic_to_numeric(self, tile):
         """Converts alphanumeric to numeric values
@@ -85,6 +84,7 @@ class ChessPiece(object):
             False
         """
         return True if self.algebraic_to_numeric(position) else False
+
     def move(self, position):
         """ Moves a piece from the current position to the new one.
 
@@ -97,11 +97,3 @@ class ChessPiece(object):
 
         if not self.is_legal_move(position):
             return False
-
-    newmove = (self.prefix + self.position, self.prefix + position,
-               time.time())
-
-    self.moves.append(newmove)
-    self.position = position
-
-    return newmove
