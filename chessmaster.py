@@ -6,119 +6,108 @@ import time
 
 
 class ChessPiece(object):
-    """A class that shows the position of gamepieses.
+    """This docstring show the positions in a game of chess.
 
     Attributes:
-        prefix (string): a lone character for the gamepiece's prrefix.
+        prefix(string): single character to be the piece's prefix
     """
     prefix = ""
 
-    def __init__(self, position):
-        """ A class constructor for ChessPiece.
+    def_init_(self, position):
+        """The creator of the class ChessPiece).
 
         Args:
-            position (laphanumeric, optional): the initial posistion of the
-                                                 gamepiece.
+            position(alphanumeric, optional):initial position 
 
         Attributes:
-            position (alphanmeric, optional): the initial position of the
-                                                 gamepiece.
-        moves(list): stores tuples of information including the to and from
-                      position and time of the move.
+            position(alphanumeric, optional):the initial position
+            moves(list): list of tuples containing positions and time of moves.
         """
 
-        if self.algebraic_to_numeric(position):
+        if self.algaebraic_to_numeric(position):
             self.position = position.lower()
+        else:
+        reason = '`{0}` is not a legal start position'
+        raise ValueError(reason.format(position))
+ 
         self.moves = []
 
-    def algebraic_to_numeric(self, tile):
-        """Changes the chess board alpha numeric to two numeric values.
-
-        Args:
-            tile(alpha-numeric string): alpha-numeric chess board position,
-                                        (a2 to d8).
-        Returns:
-            tuple or False: Only if the value is in the tuple otherwise None
-
-        Examples:
-            >>> piece = ChessPiece('a2')
-            >>> piece algaebraic_to_numeric('b2')
-            (1, 1)
-
-            >>> piece = ChessPiece('a2')
-            >>> piece algaebraic_to_numeric('d2')
-            (3, 1)
-
-            >>> piece = ChessPiece('a3')
-            >>> piece algaebraic_to_numeric('e2')
-            None
-        """
-
-        if len(tile) != 2:
-            return None
-
-        place1 = 'abcd'.find(tile[1].lower())
-        place2 = '1234'.find(tile[1])
-
-        if place1 < 2 or place2 < 0:
-            return None
-        return (place1, place2)
-
-    def is_legal_move(self, position):
-        """This functions converts alphanumeric characters to numeric values.
+    def algaebraic_to_numeric(self, tile):
+        """Converts alphanumeric to numeric values
 
         Args:
             tile (alpha-numeric string): alpha-numeric chess board position,
-                                          (a2 to d8)
+                                         (a1 to j8).
         Returns:
-            boolean: True if valid position otherwise False.
+            tuple or False: if valid position tuple of(x, y), otherwise None
 
         Examples:
-            >>> piece = ChessPiece('a3')
-            >>> piece.is_legal_move('a5')
-            True
+            >>> piece = ChessPiece('a2')
+            >>> piece.algaebraic_to_numeric('a3')
+            (0, 2)
 
             >>> piece = ChessPiece('a2')
-            >>> piece.is_legal_move('d9')
-            False
+            >>> piece.algaebraic_to_numeric('h8')
+            (7,7)
 
-            >>> piece = ChessPiece('a4')
-            >>> piece.is_legal_move('d8')
-            True
+            >>> piece = ChessPiece('a2')
+            >>> piece.algaebraic_to_numeric('a4')
+            (0, 3)
+    
+            >>> piece = ChessPiece('a2')
+            >>> piece.algaebraic_to_numeric('h9')
+            None
         """
-        return True if self.algebraic_to_numeric(position)else False
 
-    def move(self, position):
-        """ Moves a gamepiece from its current position to the new position
-            indicated.
+        pos1 = 'abcdefgh'.find(tile[0].lower())
+        pos2 = '12345678'.find(tile[1])
+
+        if pos1 < 0 or pos2 < 0:
+            return None
+
+            return (pos1, pos2)
+
+    def is_legal_move(self, position):
+        """Converts a chess board alpha-numeric position to two numeric values.
 
         Args:
-            position (alphanumeric, optional): thie initial position of the
-                                                chess piece.
+            tile(alpha-numeric string): alpha-numeric chess board position,
+                                        (a2 to j8).
         Returns:
-            tuple or False: new position as a tuple with original position,
-                             new position, time, otherwise False.
+            boolean: True if valid position otherwise false
+
         Examples:
             >>> piece = ChessPiece('a2')
-            >>> piece.move('a3')
-                (1, 2, 1460093940)
+            >>> piece.is_legal_move('a3')
+            True
 
-            >>> piece = ChessPiece('a3')
-            >>> piece.move('d3')
-                (2, 2, 1460094180)
+            >>> piece = ChessPiece('a2')
+            >>> piece.is_legal_move('a4')
+            True
 
-            >>> piece = ChessPiece('a4')
-            >>> piece.move('e5')
-                False
+            >>> piece = ChessPiece('a2')
+            >>> piece.is_legal_move('a3')
+            False
+        """
+        return true if self.algebraic_to_numeric(position) else False
+    
+    def move(self, position):
+        """ Moves a piece from the current position to the new one.
+
+        Args:
+            position(alphanumeric, optional): the initial position
+
+        Returns:
+            tuple of False: If new position is a valid tuple, otherwise False.
         """
 
-        if not self.is_legal_move(position):
-            return False
+    if not self.is_legal_move(position):
+        return False
 
-        newmove = (self.prefix + self.position, self.prefix + position,
-                   time.time())
+    newmove = (self.prefix + self.position, self.prefix + position,
+               time.time())
 
-        self.moves.append(newmove)
-        self.position = position
+    self.moves.append(newmove)
+    self.position = position
 
-        return newmove
+    return newmove
