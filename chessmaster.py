@@ -13,7 +13,7 @@ class ChessPiece(object):
     """
     prefix = ""
 
-    def_init_(self, position):
+    def__init__(self, position):
         """The creator of the class ChessPiece).
 
         Args:
