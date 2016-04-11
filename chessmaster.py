@@ -27,7 +27,7 @@ class ChessPiece(object):
         if self.algaebraic_to_numeric(position):
             self.position = position.lower()
         else:
-        reason = '`{0}` is not a legal start position'
+            reason = '`{0}` is not a legal start position'
         raise ValueError(reason.format(position))
  
         self.moves = []
