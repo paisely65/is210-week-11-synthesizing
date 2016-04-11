@@ -27,7 +27,7 @@ class ChessPiece(object):
         else:
             reason = '`{0}` is not a legal start position'
         raise ValueError(reason.format(position))
-            self.moves = []
+        self.moves = []
 
     def algaebraic_to_numeric(self, tile):
         """Converts alphanumeric to numeric values
